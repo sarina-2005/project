@@ -1,8 +1,5 @@
 import tkinter
 import sqlite3
-import tkinter as tk
-import json
-
 
 cnt=sqlite3.connect("shop.db")
 session=False
@@ -75,12 +72,16 @@ def view_chart():
     print("View Chart Button")
 win=tkinter.Tk()
 win.title("shopping cart")
+
 shopping_cart_items=['Item 1', 'Item 2', 'Item 3']
+
 pid=int(input("pid"))
 pqnt=int(input("pqnt"))
 sql=f'''SELECT * FROM products WHERE id="{pid}"'''
 result=cnt.execute(sql)
 rows=result.fetchall()
+
+
 btn_view_chart=tkinter.Button(win,text="View Chart",fg="black")
 btn_view_chart.pack()
 
